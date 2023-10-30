@@ -46,9 +46,10 @@ public class Promotion extends Scene {
 		});
 		//add everything to scene
 		gp.add(holder, 0, 0);
-		gp.add(employeeToPromote, 1, 0);
-		gp.add(rankCombo, 1, 1);
-		gp.add(submit, 1, 2);
-		gp.add(backButton, 2, 3);
+		gp.add(statusLabel, 1, 0);
+		gp.add(employeeToPromote, 1, 1);
+		gp.add(rankCombo, 1, 2);
+		gp.add(submit, 1, 3);
+		gp.add(backButton, 2, 4);
 	}
 }

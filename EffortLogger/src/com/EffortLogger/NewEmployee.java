@@ -1,10 +1,12 @@
 package com.EffortLogger;
+import java.sql.Timestamp;
 /*
  * Created by Maguire Brady
  * For use in CSE360
  */
 import java.util.HashSet;
 import java.util.Set;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -49,6 +51,7 @@ public class NewEmployee extends Scene{
 			//else
 			String password = newEmpDesiredPassword.getText();
 			String rank = rankCombo.getSelectionModel().getSelectedItem();
+			Timestamp ts = new Timestamp(System.currentTimeMillis());
 			String p = ("(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$%^&*()\\-__+.]){1,}).{8,}$");
 //			(?=(.*[a-z]){3,})               lowercase letters. {3,} indicates that you want 3 of this group
 //			(?=(.*[A-Z]){2,})               uppercase letters. {2,} indicates that you want 2 of this group
@@ -59,7 +62,7 @@ public class NewEmployee extends Scene{
 				if(password.matches(p)) {
 					//userID generation
 					String userID = randomIdentifier();
-					Employee newEmp = new Employee(name, userID, password, Integer.parseInt(rank), ssn);
+					Employee newEmp = new Employee(name, userID, password, Integer.parseInt(rank), ssn, ts);
 					//add newEmp to db
 					System.out.println(newEmp.toString());
 					statusLabel.setText("Employee created\nEmployee USERID: " + userID);
