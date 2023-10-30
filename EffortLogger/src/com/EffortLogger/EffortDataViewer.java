@@ -20,7 +20,11 @@ public class EffortDataViewer extends Application {
         String[] sampleEffortData = {
             "Name: John\nID: 342\nRank: Developer\nData: 10 hours",
             "Name: Alice\nID: 35\nRank: Engineer\nData: 8 hours",
-            "Name: Bob\nID: 3903\nRank: Developer\nData: 12 hours"
+            "Name: Bob\nID: 892\nRank: Developer\nData: 12 hours",
+            "Name: Emily\nID: 67\nRank: Developer\nData: 15 hours",
+            "Name: James\nID: 93\nRank: Developer\nData: 6 hours",
+            "Name: Sarah\nID: 26\nRank: Engineer\nData: 9 hours",
+            "Name: Jack\nID: 29\nRank: Engineer\nData: 9 hours",
         };
         
         // Create an EffortData object

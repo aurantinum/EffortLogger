@@ -1,5 +1,7 @@
-// Get EffortLogger data, then change to data that administrators can see
-// Change to linked list (at least for roles
+// Author: Alex Dumerve
+// This prototype takes employee effort data and takes the employee name and ID out before 
+// administrators have access to it.
+// There also has to be enough individuals to maintain anonymity. (In this case, there needs to be 3)
 
 package com.EffortLogger;
 
@@ -27,25 +29,36 @@ public class EffortData {
 	
 	public String PrintAll() {
 		String data = "";
+		int c = 0;
 		
 		for (int i = 0; i < effortData.length; i++) {
 			data = data + effortData[i];
 			data = data + "\n\n";
+			c = i;
+		}
+		
+		if (c < 2) {
+			return "There is not enough data to ensure employee anonymity";
 		}
 		
 		return data;
 	}
 	
 	public String PrintDevelopers() {
+		int c = 0;
 		String data = "";
 		
 		data = data + "Developers:\n\n";
 		for (int i = 0; i < developers.length; i++) {
 			if (developers[i] == null) {
+				c = i;
 				break;
 			}
 			data = data + developers[i];
 			data = data + "\n\n";
+		}
+		if (c < 2) {
+			return "There is not enough data to ensure employee anonymity";
 		}
 		
 		return data;
@@ -53,21 +66,26 @@ public class EffortData {
 	
 	public String PrintEngineers() {
 		String data = "";
+		int c = 0;
 		
 		data = data + "Engineers:\n\n";
 		for (int i = 0; i < engineers.length; i++) {
 			if (engineers[i] == null) {
+				c = i;
 				break;
 			}
 			data = data + engineers[i];
 			data = data + "\n\n";
 		}
 		
+		if (c < 2) {
+			return "There is not enough data to ensure employee anonymity";
+		}
+		
 		return data;
 	}
 	
-	// Strips name
-	// strip ID, any other user information
+	// Strips name and ID
 	private String StripInfo(String effortData) {
 		int indexStart, indexEnd;
 		
