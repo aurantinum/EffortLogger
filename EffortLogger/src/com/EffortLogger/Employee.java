@@ -1,11 +1,14 @@
 package com.EffortLogger;
-
+/*
+ * Created by Maguire Brady
+ * For use in CSE360
+ */
 import java.util.Objects;
 
 public class Employee {
 	String name, id, password;
 	int rank;
-	public Employee(String name, String id, String password, int rank) {
+	public Employee(String name, String id, String password, int rank, String ssn) {
 		this.name = name;
 		this.id = id;
 		this.password = password;
@@ -54,6 +57,10 @@ public class Employee {
 		Employee other = (Employee) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name)
 				&& Objects.equals(password, other.password) && rank == other.rank;
+	}
+	protected static Employee GetEmployee(String userID) {
+		//fetch from db with user id
+		return new Employee(null, userID,null, 0, null);
 	}
 	
 }
