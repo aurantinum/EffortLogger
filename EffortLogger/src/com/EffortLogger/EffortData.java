@@ -107,7 +107,7 @@ public class EffortData {
 	private void ModifyArray(String[] effortData) {
 		for (int i = 0; i < effortData.length; i++) {
 			effortData[i] = StripInfo(effortData[i]);
-			SeperateRank(effortData[i]);
+			SeperateRole(effortData[i]);
 		}
 		
 		PrintAll();
@@ -121,11 +121,11 @@ public class EffortData {
 		return partBefore + partAfter;
 	}
 	
-	private void SeperateRank(String employee) {
+	private void SeperateRole(String employee) {
 		String rank = "";
 		int indexStart, indexEnd;
 		// find rank
-		indexStart = employee.indexOf("Rank: ");
+		indexStart = employee.indexOf("Role: ");
 		indexStart += 6;
 		indexEnd = employee.indexOf("\n", indexStart);
 		rank = employee.substring(indexStart, indexEnd);

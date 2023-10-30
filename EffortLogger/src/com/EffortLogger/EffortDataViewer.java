@@ -18,13 +18,13 @@ public class EffortDataViewer extends Application {
     public void start(Stage primaryStage) {
     	// Sample effort data
         String[] sampleEffortData = {
-            "Name: John\nID: 342\nRank: Developer\nData: 10 hours",
-            "Name: Alice\nID: 35\nRank: Engineer\nData: 8 hours",
-            "Name: Bob\nID: 892\nRank: Developer\nData: 12 hours",
-            "Name: Emily\nID: 67\nRank: Developer\nData: 15 hours",
-            "Name: James\nID: 93\nRank: Developer\nData: 6 hours",
-            "Name: Sarah\nID: 26\nRank: Engineer\nData: 9 hours",
-            "Name: Jack\nID: 29\nRank: Engineer\nData: 9 hours",
+            "Name: John\nID: 342\nRole: Developer\nData: 10 hours",
+            "Name: Alice\nID: 35\nRole: Engineer\nData: 8 hours",
+            "Name: Bob\nID: 892\nRole: Developer\nData: 12 hours",
+            "Name: Emily\nID: 67\nRole: Developer\nData: 15 hours",
+            "Name: James\nID: 93\nRole: Developer\nData: 6 hours",
+            "Name: Sarah\nID: 26\nRole: Engineer\nData: 9 hours",
+            "Name: Jack\nID: 29\nRole: Engineer\nData: 9 hours",
         };
         
         // Create an EffortData object
