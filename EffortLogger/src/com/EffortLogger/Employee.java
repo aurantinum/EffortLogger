@@ -6,7 +6,8 @@ import java.sql.Timestamp;
  */
 import java.util.Objects;
 
-public class Employee {
+public class Employee {//implements Serializable{
+	//private static final long serialVersionUID = 1L;
 	String name, id, password;
 	int rank;
 	Timestamp passwordChange;
@@ -43,8 +44,8 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", id=" + id + ", password=" + password + ", rank=" + rank
-				+ ", passwordChange=" + passwordChange + "]";
+		return "name=" + name + ", id=" + id + ", password=" + password + ", rank=" + rank
+				+ ", passwordChange=" + passwordChange;
 	}
 	@Override
 	public int hashCode() {
@@ -72,5 +73,9 @@ public class Employee {
 	public void setPasswordChange(Timestamp passwordChange) {
 		this.passwordChange = passwordChange;
 	}
-	
+//	public static Employee deserialize(FileInputStream in) throws IOException, ClassNotFoundException {
+//		ObjectInputStream instream = new ObjectInputStream(in);
+//		Employee emp = (Employee) instream.readObject();
+//		return emp;
+//	}
 }

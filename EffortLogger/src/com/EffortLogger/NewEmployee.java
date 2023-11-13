@@ -1,12 +1,11 @@
 package com.EffortLogger;
-import java.sql.Timestamp;
 /*
  * Created by Maguire Brady
  * For use in CSE360
  */
 import java.util.HashSet;
 import java.util.Set;
-
+import java.sql.Timestamp;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
