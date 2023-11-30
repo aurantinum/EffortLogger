@@ -1,8 +1,11 @@
 package com.EffortLogger;
-
+/*
+ * Created by Maguire Brady
+ * For use in CSE360
+ */
 import java.util.HashSet;
 import java.util.Set;
-
+import java.sql.Timestamp;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -17,6 +20,7 @@ import javafx.stage.Stage;
 public class NewEmployee extends Scene{
 	protected NewEmployee(Stage stage, GridPane gp) {
 		super(gp, 720, 480);
+		//initializing components
 		TextField newEmpName = new TextField();
 		PasswordField newEmpSSN = new PasswordField();
 		PasswordField newEmpDesiredPassword = new PasswordField();
@@ -28,6 +32,7 @@ public class NewEmployee extends Scene{
 		Label rankLabel = new Label();
 		BorderPane statusNamePane = new BorderPane();
 		BorderPane rankPane = new BorderPane();
+		//setting starting state for components
 		statusNamePane.setTop(statusLabel);
 		statusNamePane.setBottom(newEmpName);
 		statusLabel.setText("Please enter the employee's information:");
@@ -45,6 +50,7 @@ public class NewEmployee extends Scene{
 			//else
 			String password = newEmpDesiredPassword.getText();
 			String rank = rankCombo.getSelectionModel().getSelectedItem();
+			Timestamp ts = new Timestamp(System.currentTimeMillis());
 			String p = ("(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$%^&*()\\-__+.]){1,}).{8,}$");
 //			(?=(.*[a-z]){3,})               lowercase letters. {3,} indicates that you want 3 of this group
 //			(?=(.*[A-Z]){2,})               uppercase letters. {2,} indicates that you want 2 of this group
@@ -55,7 +61,7 @@ public class NewEmployee extends Scene{
 				if(password.matches(p)) {
 					//userID generation
 					String userID = randomIdentifier();
-					Employee newEmp = new Employee(name, userID, password, Integer.parseInt(rank), ssn);
+					Employee newEmp = new Employee(name, userID, password, Integer.parseInt(rank), ssn, ts);
 					//add newEmp to db
 					System.out.println(newEmp.toString());
 					statusLabel.setText("Employee created\nEmployee USERID: " + userID);
@@ -74,6 +80,7 @@ public class NewEmployee extends Scene{
 		});
 		rankCombo.getItems().addAll("0", "1", "2");
 		rankCombo.getSelectionModel().select(0);
+		//adding components to scene
 		gp.add(holder, 0, 0);
 		gp.add(statusNamePane, 1, 0);
 		gp.add(newEmpSSN, 1, 1);
@@ -83,16 +90,6 @@ public class NewEmployee extends Scene{
 		gp.add(backButton, 2, 3);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	// class variable
 	final private String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345674890";

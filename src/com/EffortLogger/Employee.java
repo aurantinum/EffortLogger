@@ -1,15 +1,22 @@
 package com.EffortLogger;
-
+import java.sql.Timestamp;
+/*
+ * Created by Maguire Brady
+ * For use in CSE360
+ */
 import java.util.Objects;
 
-public class Employee {
+public class Employee {//implements Serializable{
+	//private static final long serialVersionUID = 1L;
 	String name, id, password;
 	int rank;
-	public Employee(String name, String id, String password, int rank, String ssn) {
+	Timestamp passwordChange;
+	public Employee(String name, String id, String password, int rank, String ssn, Timestamp passwordChange) {
 		this.name = name;
 		this.id = id;
 		this.password = password;
 		this.rank = rank;
+		this.passwordChange = passwordChange;
 	}
 	public String getName() {
 		return name;
@@ -37,7 +44,8 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", id=" + id + ", password=" + password + ", rank=" + rank + "]";
+		return "name=" + name + ", id=" + id + ", password=" + password + ", rank=" + rank
+				+ ", passwordChange=" + passwordChange;
 	}
 	@Override
 	public int hashCode() {
@@ -56,8 +64,18 @@ public class Employee {
 				&& Objects.equals(password, other.password) && rank == other.rank;
 	}
 	protected static Employee GetEmployee(String userID) {
-		//fetch from sql with user id
-		return new Employee(null, userID,null, 0, null);
+		//fetch from db with user id
+		return new Employee(null, userID,null, 0, null, null);
 	}
-	
+	public Timestamp getPasswordChange() {
+		return passwordChange;
+	}
+	public void setPasswordChange(Timestamp passwordChange) {
+		this.passwordChange = passwordChange;
+	}
+//	public static Employee deserialize(FileInputStream in) throws IOException, ClassNotFoundException {
+//		ObjectInputStream instream = new ObjectInputStream(in);
+//		Employee emp = (Employee) instream.readObject();
+//		return emp;
+//	}
 }

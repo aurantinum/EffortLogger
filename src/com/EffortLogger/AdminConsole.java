@@ -1,5 +1,8 @@
 package com.EffortLogger;
-
+/*
+ * Created by Maguire Brady
+ * For use in CSE360
+ */
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -14,6 +17,7 @@ public class AdminConsole extends Scene{
 	public AdminConsole(Stage stage, GridPane gp){
 		//three buttons : goto effortlogger, add new person, change permissions
 		super(gp, 720, 480);
+		//initialize components
 		Button effortButton = new Button();
 		Button newEmpButton = new Button();
 		Button promoButton = new Button();
@@ -23,6 +27,7 @@ public class AdminConsole extends Scene{
 		Pane filler3 = new Pane();
 		Pane filler4 = new Pane();
 		BorderPane logHolder = new BorderPane();
+		//starting state of components
 		effortButton.setText("Go to EffortLogger");
 		newEmpButton.setText("Create a new Employee ID");
 		promoButton.setText("Change Employee Permissions");
@@ -38,6 +43,7 @@ public class AdminConsole extends Scene{
 		filler2.setMinSize(240, 120);
 		filler3.setMinSize(240, 120);
 		filler4.setMinSize(240, 120);
+		//add components to scene
 		gp.setMinWidth(240);
 		gp.add(filler1, 0, 0);
 		gp.add(filler2, 0, 1);
@@ -50,6 +56,7 @@ public class AdminConsole extends Scene{
 //		effortButton.setOnAction(e ->{
 //			primaryStage.setScene(new EffortConsole());
 //		});
+		//button functionality
 		newEmpButton.setOnAction(e->{
 			stage.setScene(new NewEmployee(stage, new GridPane()));
 		});
