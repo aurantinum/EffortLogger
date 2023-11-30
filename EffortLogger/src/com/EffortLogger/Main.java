@@ -6,78 +6,159 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
+	private int count = 5;
+	private String user;
+	private int value;
 	@Override
 	//private Label entry2;
+	
 	public void start(Stage primaryStage) {
-		GridPane grid = new GridPane();
-        grid.setHgap(10);
+		GridPane grid = new GridPane(); //Sets up the login page
+		grid.setHgap(10);
         grid.setVgap(10);
         
 
         // Create labels, text fields, and a button
+        Label countLabel = new Label("Remaining Attempts: 5");
         Label title = new Label("EffortLogger Login:");
+        Label passwordTitle = new Label("Change Password");
         Label usernameLabel = new Label("Username:");
-        TextField usernameField = new TextField();
         Label passwordLabel = new Label("Password:");
-        PasswordField passwordField = new PasswordField();
-        Label entry = new Label("Entry:");
+        Label newPasswordLabel = new Label("New Password:");
+        Label checkPassword = new Label("Confirm Password");
+        Label admin = new Label("Admin View");
+        Label employee = new Label("Employee View");
+        
+        TextField passwordField = new PasswordField();
+        TextField passwordCheckField = new TextField();
+        TextField usernameField = new TextField();
         
         Button passwordReset = new Button("Forgot Password?");
         Button loginButton = new Button("Login");
+        Button contact = new Button("Contact Admin");
+        Button changePassword = new Button("Change Password:");
 
         grid.add(title, 0, 0);
         grid.add(usernameLabel, 0, 1);
         grid.add(usernameField, 1, 1);
         grid.add(passwordLabel, 0, 2);
         grid.add(passwordField, 1, 2);
-        grid.add(loginButton, 0, 3);
-        //grid.add(entry, 1, 4); //will display whether or not user is allowed access
-        grid.add(passwordReset, 1, 3); //will allow reset password in later implementation
-
+        grid.add(loginButton, 0, 4);
+        grid.add(countLabel, 0, 3); //will display whether or not user is allowed access
+        grid.add(passwordReset, 1, 4); //will allow reset password in later implementation
+        
         // Add an action when the login button is clicked
+        
+        	
+        	
         loginButton.setOnAction(e -> {
-            String username = usernameField.getText(); //gets a username and password with valid inputs
+           	
+        	String username = usernameField.getText(); //gets a username and password with valid inputs
             String password = passwordField.getText();
-           
+               
             if(isLoginSuccessful(username, password)) {
             	System.out.println("Success"); //will be taken out and replaced with entry label
-      
+                grid.getChildren();
+                grid.getChildren().remove(title);
+            	grid.getChildren().remove(usernameLabel);
+            	grid.getChildren().remove(usernameField);
+            	grid.getChildren().remove(passwordLabel);
+            	grid.getChildren().remove(passwordField);
+            	grid.getChildren().remove(loginButton);
+            	grid.getChildren().remove(countLabel);
+            	grid.getChildren().remove(passwordReset);
+                if(isUserAdmin(username)) {
+                	grid.add(admin, 0, 0);
+                }
+                else{
+                	grid.add(employee, 0, 0);
+                }
+                //Add an if statement for whether user is admin or employee
+                //if admin add admin panel
+                //else show EffortLogger
+            }
+            else if(count > 1) {
+                count--;
+                updateLabel(countLabel);
+                
             }
             else {
-            	System.out.println("Attempts remaining: 5");//will allow a total of 5 attempts before locking account
+            	grid.getChildren().remove(loginButton);
+            	grid.getChildren().remove(passwordReset);
+            	grid.add(contact, 0, 4);
+            	count--;
+            	updateLabel(countLabel);
             }
-        	
-            //Add authentication rules here
             
-            
+                //Add authentication rules here
+                
+                
         });
+        
+        
         passwordReset.setOnAction(e ->{
+        	grid.getChildren().remove(title);
+        	grid.getChildren().remove(usernameLabel);
+        	grid.getChildren().remove(usernameField);
+        	grid.getChildren().remove(passwordLabel);
+        	grid.getChildren().remove(passwordField);
+        	grid.getChildren().remove(loginButton);
+        	grid.getChildren().remove(countLabel);
+        	grid.getChildren().remove(passwordReset);
+        	grid.add(passwordTitle, 0, 0);
+        	grid.add(usernameLabel, 0, 1);
+            grid.add(usernameField, 1, 1);
+            grid.add(newPasswordLabel, 0, 2);
+            grid.add(passwordField, 1, 2);
         	System.out.println("Change Password: "); //Allow user to change password based on conditions
+        	
         });
 
         
-        Scene scene = new Scene(grid, 300, 180); //size of grid
+        Scene scene = new Scene(grid, 350, 180); //size of grid
+        primaryStage.setTitle("EffortLogger");
         primaryStage.setScene(scene);
         primaryStage.show();
 	}
+	private void updateLabel(Label label) {
+        label.setText("Remaining Attempts: " + count);
+        if(count == 0) {
+        	label.setText("Contact Admin for Account Reset");
+        	
+        }
+    }
+	
+	
+	public String getStringValue() {
+        return user;
+    }
+
+    public int getIntValue() {
+        return value;
+    }
 	private boolean isLoginSuccessful(String username, String password) {
 		//username and password will have checks against saved username and password database in later implementation
-        if(username.equals("Username") && password.equals("password123.")) {
+        if(username.equals("Admin") && password.equals("password123.")) {
+        	return true;
+        }
+        if(username.equals("Employee") && password.equals("password123.")) {
         	return true;
         }
                 
         return false;
         
     }
-	private boolean isUserValid() { //will check if username is valid
-		return true;
-	}
-	private boolean isPasswordValid() { //will check if password is valid
-		return true;
+	private boolean isUserAdmin(String username) {
+		if(username.equals("Admin")){
+			return true;
+		}
+		return false;
+		
 	}
 	public static void main(String[] args) {
 		launch(args);
