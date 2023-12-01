@@ -32,7 +32,15 @@ public class EffortLoggerConsole extends Scene {
         	primaryStage.setScene(new PlanningPoker(primaryStage, new GridPane()));
         });
         planningPokerButton.setMinWidth(200);
+        
+        //Add Button for EffortData
+        Button effortDataButton = new Button();
+        effortDataButton.setText("Go to Effort Data console");
+        effortDataButton.setOnAction(e->{
+        	primaryStage.setScene(new EffortData(primaryStage, new VBox(10)));
+        });
+        effortDataButton.setMinWidth(200);
         // Add components to the VBox
-        root.getChildren().addAll(label1, comboBox, label2, textField1, label3, textField2, planningPokerButton);
+        root.getChildren().addAll(label1, comboBox, label2, textField1, label3, textField2, effortDataButton, planningPokerButton);
     }
 }

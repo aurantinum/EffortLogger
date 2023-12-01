@@ -43,7 +43,7 @@ public class AdminManager {
 				break;
 			}
 			data = data + developers[i].getRole() + " " + developers[i].getRole() + "\n";
-			data = data + "Hours: " + developers[i].GetHours() + "\n" + "Defects: " + developers[i].GetDefects();
+			data = data + "Hours: " + developers[i].getHours() + "\n" + "Defects: " + developers[i].getDefects();
 			data = data + "\n\n";
 		}
 		if (c < 2) {
@@ -64,7 +64,7 @@ public class AdminManager {
 				break;
 			}
 			data = data + engineers[i].getRole() + " " + engineers[i].getRole() + "\n";
-			data = data + "Hours: " + engineers[i].GetHours() + "\n" + "Defects: " + engineers[i].GetDefects();
+			data = data + "Hours: " + engineers[i].getHours() + "\n" + "Defects: " + engineers[i].getDefects();
 			data = data + "\n\n";
 		}
 		

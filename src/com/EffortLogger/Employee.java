@@ -45,15 +45,15 @@ public class Employee {//implements Serializable{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String GetHours() {
+	public String getHours() {
 		return hours;
 	}
 	
-	public void SetHours(String hours) {
+	public void setHours(String hours) {
 		this.hours = hours;
 	}
 	
-	public String GetDefects() {
+	public String getDefects() {
 		return defects;
 	}
 	
