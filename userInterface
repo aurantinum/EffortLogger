@@ -1,0 +1,45 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class effortloggerTest extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        // Create a VBox to hold the UI components
+        VBox root = new VBox();
+
+        // Create a ComboBox for dropdown
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.getItems().addAll("Option 1", "Option 2", "Option 3");
+
+        // Create two TextFields for user input
+        TextField textField1 = new TextField();
+        TextField textField2 = new TextField();
+
+        // Add labels for clarity
+        Label label1 = new Label("Dropdown Selection:");
+        Label label2 = new Label("Text Field 1:");
+        Label label3 = new Label("Text Field 2:");
+
+        // Add components to the VBox
+        root.getChildren().addAll(label1, comboBox, label2, textField1, label3, textField2);
+
+        // Create a Scene and set it on the Stage
+        Scene scene = new Scene(root, 300, 200);
+        primaryStage.setScene(scene);
+
+        // Set the title of the window
+        primaryStage.setTitle("User Interface Example");
+
+        // Show the window
+        primaryStage.show();
+    }
+}
