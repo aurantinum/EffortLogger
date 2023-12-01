@@ -1,6 +1,5 @@
 package asuHelloWorldJavaFX;
 
-import asuHelloWorldJavaFX.DataStorageEL2.User;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -79,8 +78,8 @@ public class ASUHelloWorldJavaFX extends Application {
 	        
 	        // Sample data to enter into the table
 	        table.getItems().addAll(
-	                new User("tom brady", "password123", " Data"),
-	                new User("kanye west", "password123", " Data")
+	                new User("tom brady", "password123", "Data"),
+	                new User("kanye west", "password123", "Data")
 	        );
 
 
@@ -157,11 +156,17 @@ public class ASUHelloWorldJavaFX extends Application {
 	        
 	        
 	  private Tab createTab(String title) {
-	        Tab tab = new Tab(title);
-	        TableView<Object> emptyTable = new TableView<>();  // Empty tables for now
-	        tab.setContent(emptyTable);
-	        tab.setClosable(false);  // ensure the tabs cant be closed
-	        return tab;
-	    }
+		    Tab tab = new Tab(title);
+		    TextArea consoleTextArea = new TextArea();
+		    consoleTextArea.setEditable(false); // Makes the text area non-editable
+		    consoleTextArea.setStyle("-fx-control-inner-background: black; -fx-text-fill: limegreen; -fx-font-family: 'Consolas';"); // Console-like styling
+
+		    // console output
+		    consoleTextArea.setText("Console Output\n---");
+
+		    tab.setContent(consoleTextArea);
+		    tab.setClosable(false);  // Ensure the tabs can't be closed
+		    return tab;
+		}
 	  
 }
