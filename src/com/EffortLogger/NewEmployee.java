@@ -61,7 +61,7 @@ public class NewEmployee extends Scene{
 				if(password.matches(p)) {
 					//userID generation
 					String userID = randomIdentifier();
-					Employee newEmp = new Employee(name, userID, password, Integer.parseInt(rank), ssn, ts);
+					Employee newEmp = new Employee(name, userID, password, rank, ssn, null, null, ts);
 					//add newEmp to db
 					System.out.println(newEmp.toString());
 					statusLabel.setText("Employee created\nEmployee USERID: " + userID);

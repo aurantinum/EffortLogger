@@ -3,7 +3,9 @@ package com.EffortLogger;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+
 import javax.imageio.ImageIO;
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PlanningPoker extends Scene{
@@ -82,7 +85,7 @@ public class PlanningPoker extends Scene{
 		returnToEL.setText("Return to EffortLogger Console");
 		returnToEL.setOnAction(e->{
 			//When the button is pressed, return to the EffortLogger console
-			//stage.setScene(new EffortLoggerConsole(stage, new GridPane());
+			stage.setScene(new EffortLoggerConsole(stage, new VBox()));
 		});
 		//add all set up components to gp, which will make them visible to the user
 		gp.add(projectName, 1, 0);

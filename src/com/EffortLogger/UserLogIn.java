@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class UserLogIn extends Scene {
@@ -74,7 +75,7 @@ public class UserLogIn extends Scene {
                 	primaryStage.setScene(new AdminConsole(primaryStage, new GridPane()));
                 }
                 else{
-                	grid.add(employee, 0, 0);
+                	primaryStage.setScene(new EffortLoggerConsole(primaryStage, new VBox()));
                 }
                 //Add an if statement for whether user is admin or employee
                 //if admin add admin panel

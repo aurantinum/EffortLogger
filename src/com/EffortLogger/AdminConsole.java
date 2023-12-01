@@ -58,9 +58,9 @@ public class AdminConsole extends Scene{
 		gp.add(promoButton, 1, 2);
 		gp.add(viewEffortButton, 1, 3);
 		gp.add(logHolder, 2, 3);
-//		effortButton.setOnAction(e ->{
-//			primaryStage.setScene(new EffortConsole());
-//		});
+		effortButton.setOnAction(e ->{
+			stage.setScene(new EffortLoggerConsole(stage, new VBox()));
+		});
 		//button functionality
 		newEmpButton.setOnAction(e->{
 			stage.setScene(new NewEmployee(stage, new GridPane()));

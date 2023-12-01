@@ -31,7 +31,7 @@ public class Promotion extends Scene {
 			Employee change = Employee.GetEmployee(employeeToPromote.getText());
 			if(change != null) {
 				//change employee's rank
-				change.setRank(rankCombo.getSelectionModel().getSelectedItem());
+				change.setRole(Integer.toString(rankCombo.getSelectionModel().getSelectedItem()));
 				employeeToPromote.clear();
 				statusLabel.setText("Permissions updated");
 			}else {
