@@ -79,8 +79,8 @@ public class ASUHelloWorldJavaFX extends Application {
 	        
 	        // Sample data to enter into the table
 	        table.getItems().addAll(
-	                new User("tom brady", "password123", "Sample Data"),
-	                new User("kanye west", "password123", "Sample Data")
+	                new User("tom brady", "password123", " Data"),
+	                new User("kanye west", "password123", " Data")
 	        );
 
 
