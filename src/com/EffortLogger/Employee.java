@@ -9,13 +9,16 @@ import java.util.Objects;
 public class Employee {//implements Serializable{
 	//private static final long serialVersionUID = 1L;
 	String name, id, password;
-	int rank;
+	String role;
+	String hours, defects;
 	Timestamp passwordChange;
-	public Employee(String name, String id, String password, int rank, String ssn, Timestamp passwordChange) {
+	public Employee(String name, String id, String password, String role, String ssn, String hours, String defects, Timestamp passwordChange) {
 		this.name = name;
 		this.id = id;
 		this.password = password;
-		this.rank = rank;
+		this.role = role;
+		this.hours = hours;
+		this.defects = defects;
 		this.passwordChange = passwordChange;
 	}
 	public String getName() {
@@ -36,20 +39,35 @@ public class Employee {//implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getRank() {
-		return rank;
+	public String getRole() {
+		return role;
 	}
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String GetHours() {
+		return hours;
+	}
+	
+	public void SetHours(String hours) {
+		this.hours = hours;
+	}
+	
+	public String GetDefects() {
+		return defects;
+	}
+	
+	public void SetDefects(String defects) {
+		this.defects = defects;
 	}
 	@Override
 	public String toString() {
-		return "name=" + name + ", id=" + id + ", password=" + password + ", rank=" + rank
+		return "name=" + name + ", id=" + id + ", password=" + password + ", rank=" + role
 				+ ", passwordChange=" + passwordChange;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, password, rank);
+		return Objects.hash(id, name, password, role);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,11 +79,11 @@ public class Employee {//implements Serializable{
 			return false;
 		Employee other = (Employee) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Objects.equals(password, other.password) && rank == other.rank;
+				&& Objects.equals(password, other.password) && role == other.role;
 	}
 	protected static Employee GetEmployee(String userID) {
 		//fetch from db with user id
-		return new Employee(null, userID,null, 0, null, null);
+		return new Employee(null, userID,null, null, null, null, null, null);
 	}
 	public Timestamp getPasswordChange() {
 		return passwordChange;

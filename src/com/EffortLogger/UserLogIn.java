@@ -71,7 +71,7 @@ public class UserLogIn extends Scene {
             	grid.getChildren().remove(countLabel);
             	grid.getChildren().remove(passwordReset);
                 if(isUserAdmin(username)) {
-                	grid.add(admin, 0, 0);
+                	primaryStage.setScene(new AdminConsole(primaryStage, new GridPane()));
                 }
                 else{
                 	grid.add(employee, 0, 0);

@@ -12,7 +12,7 @@ public class Main extends Application {
 	//private Label entry2;
 	
 	public void start(Stage primaryStage) {
-		UserLogIn scene = new UserLogIn(primaryStage, new GridPane());
+		AdminConsole scene = new AdminConsole(primaryStage, new GridPane());
 		primaryStage.setTitle("EffortLogger");
         primaryStage.setScene(scene);
         primaryStage.show();
